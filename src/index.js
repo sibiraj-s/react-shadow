@@ -1,3 +1,5 @@
+import './polyfills';
+
 // Warning: Don't Modify this file
 import React from 'react';
 import ReactDOM from 'react-dom';
