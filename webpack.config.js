@@ -41,7 +41,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Shadow'
+      title: 'React Shadow',
+      favicon: path.resolve(__dirname, 'src/favicon.ico')
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: process.env.NODE_ENV
