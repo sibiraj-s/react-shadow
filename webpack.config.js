@@ -22,9 +22,9 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              /* eslint-disable-next-line object-shorthand, func-names */
-              insertInto: function () {
-                return document.querySelector('shadow-host').shadowRoot;
+              insert: function insertAtTop (styleEl) {
+                const target = document.querySelector('shadow-host').shadowRoot;
+                target.appendChild(styleEl);
               },
             },
           },
