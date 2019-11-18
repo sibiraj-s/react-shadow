@@ -15,7 +15,7 @@
     "shadow-dom"
   ],
   "scripts": {
-    "lint": "eslint . --fix --ignore-pattern \"!.babelrc.js\"",
+    "lint": "eslint . --fix",
     "start": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack-dev-server",
     "test": "NODE_ENV=test jest"
