@@ -1,6 +1,6 @@
 {
   "name": "react-shadow",
-  "version": "1.0.0",
+  "version": "0.0.0-boilerplate",
   "description": "React app with webcomponents",
   "main": "index.js",
   "private": true,
