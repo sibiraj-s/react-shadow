@@ -17,7 +17,7 @@
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
     "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack-dev-server",
+    "build": "NODE_ENV=production webpack",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {

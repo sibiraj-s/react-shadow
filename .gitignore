@@ -162,3 +162,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Project ###
+# Build output directory
+dist/
+build/
