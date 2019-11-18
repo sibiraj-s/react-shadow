@@ -1,4 +1,5 @@
-# react-shadow
+# react-shadow [![Tests](https://github.com/sibiraj-s/react-shadow/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/react-shadow/actions)
+
 > React app rendered inside in shadow root.
 
 ### Polyfills
@@ -8,7 +9,6 @@ Webcomponents are not yet completely supported by all browsers, refer [Can I Use
 - [core-js](https://www.npmjs.com/package/core-js)
 - [@webcomponents/shadydom](https://github.com/webcomponents/polyfills/tree/master/packages/shadydom)
 - [@webcomponents/webcomponentsjs](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs)
-
 
 ### Usage
 
