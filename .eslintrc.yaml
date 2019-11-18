@@ -6,6 +6,7 @@ parser: babel-eslint
 
 plugins:
   - react-hooks
+  - jest
 
 rules:
   react-hooks/rules-of-hooks: error
@@ -31,6 +32,7 @@ rules:
 env:
   browser: true
   node: true
+  jest/globals: true
 
 settings:
   react:

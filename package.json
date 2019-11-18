@@ -16,8 +16,9 @@
   ],
   "scripts": {
     "lint": "eslint . --fix --ignore-pattern \"!.babelrc.js\"",
-    "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=production webpack-dev-server",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@webcomponents/shadydom": "^1.7.0",
@@ -31,11 +32,13 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
@@ -43,6 +46,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jsdom": "^15.2.1",
     "sass": "^1.23.6",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",

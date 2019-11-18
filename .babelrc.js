@@ -4,7 +4,8 @@ const babelRc = (api) => {
   const { env } = api;
 
   const isEnvDevelopment = env() === 'development';
-  const isEnvProduction = !isEnvDevelopment;
+  const isEnvTest = env() === 'test';
+  const isEnvProduction = !isEnvDevelopment && !isEnvTest;
 
   return {
     presets: [
@@ -20,6 +21,15 @@ const babelRc = (api) => {
           modules: false,
           // Exclude transforms that make all code slower
           exclude: ['transform-typeof-symbol'],
+        },
+      ],
+      isEnvTest && [
+        // Latest stable ECMAScript features
+        require('@babel/preset-env').default,
+        {
+          targets: {
+            node: 'current'
+          }
         },
       ],
       [
