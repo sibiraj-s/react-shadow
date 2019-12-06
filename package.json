@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "author": "sibiraj-s",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/sibiraj-s/react-shadow.git",
   "homepage": "https://github.com/sibiraj-s/react-shadow#readme",
   "bugs": "https://github.com/sibiraj-s/react-shadow/issues",
