@@ -1,7 +1,11 @@
 const path = require('path');
-const dartSass = require('sass');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+
+function insertShadowStyles (styleEl) {
+  const target = document.querySelector('shadow-host').shadowRoot;
+  target.appendChild(styleEl);
+}
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -17,31 +21,36 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.(s)?css$/,
+        test: /app.scss/,
         use: [
           {
             loader: 'style-loader',
             options: {
-              insert: function insertAtTop (styleEl) {
-                const target = document.querySelector('shadow-host').shadowRoot;
-                target.appendChild(styleEl);
-              },
+              insert: insertShadowStyles,
             },
           },
           'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              implementation: dartSass,
-            },
-          },
+          'sass-loader',
         ],
+      },
+      {
+        test: /\.(s)?css$/,
+        exclude: /app.scss/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
+      },
+      {
+        test: /\.svg$/i,
+        use: 'file-loader',
       }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Shadow',
+      template: path.resolve(__dirname, 'src/index.html'),
       favicon: path.resolve(__dirname, 'src/favicon.ico')
     }),
     new webpack.EnvironmentPlugin({

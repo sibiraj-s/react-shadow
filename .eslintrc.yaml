@@ -28,6 +28,9 @@ rules:
   semi:
     - error
     - always
+  jsx-quotes:
+    - error
+    - prefer-single
 
 env:
   browser: true

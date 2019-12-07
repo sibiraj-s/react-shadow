@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 
 import Root from './Root';
 
+import './index.scss';
+
 // Create web component with target div inside it.
 const container = document.createElement('shadow-host');
 

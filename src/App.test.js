@@ -35,3 +35,15 @@ it('should render the react component inside shadow root', () => {
 
   expect(target.textContent).toBe('React app rendered inside Shadow DOM');
 });
+
+it('should have rendered the logo', () => {
+  // setup a DOM element as a render target
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+
+  act(() => {
+    ReactDOM.render(<App />, container);
+  });
+
+  expect(container.querySelector('img').src).toBeTruthy();
+});
