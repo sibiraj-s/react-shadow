@@ -1,6 +1,6 @@
 # react-shadow [![Tests](https://github.com/sibiraj-s/react-shadow/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/react-shadow/actions)
 
-> React app rendered inside in shadow root.
+> React app rendered inside in shadow DOM.
 
 ### Polyfills
 
