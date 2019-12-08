@@ -17,7 +17,8 @@
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
     "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production gulp build",
+    "publish": "NODE_ENV=production gulp publish",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -46,6 +47,8 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^5.0.2",
+    "gh-pages": "^2.1.1",
+    "gulp": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",

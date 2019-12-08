@@ -2,14 +2,21 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+const pkgJson = require('./package.json');
+
 function insertShadowStyles (styleEl) {
   const target = document.querySelector('shadow-host').shadowRoot;
   target.appendChild(styleEl);
 }
 
-module.exports = {
+const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, 'src/index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    jsonpFunction: '__REACT_SHADOW__'
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
   },
@@ -59,3 +66,9 @@ module.exports = {
     new webpack.ProgressPlugin()
   ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+  webpackConfig.output.publicPath = `/${pkgJson.name}/`;
+}
+
+module.exports = webpackConfig;
