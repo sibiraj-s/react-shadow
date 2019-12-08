@@ -1,7 +1,7 @@
 {
   "name": "react-shadow",
   "version": "0.0.0-boilerplate",
-  "description": "React app rendered inside in shadow DOM",
+  "description": "Render React app inside in shadow DOM",
   "main": "index.js",
   "private": true,
   "author": "sibiraj-s",
