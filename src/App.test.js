@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { JSDOM } from 'jsdom';
 
 import App from './App';
 
@@ -18,9 +17,6 @@ it('should render the react component', () => {
 });
 
 it('should render the react component inside shadow root', () => {
-  // jest@24 comes with jsdom@11 by default, webcomponents are not supported in that version
-  const { document } = new JSDOM().window;
-
   // Create web component with target div inside it.
   const container = document.createElement('shadow-host');
   // Add shadow root to component.
