@@ -1,3 +1,2 @@
 '*.{js,jsx}':
   - eslint --ignore-path .gitignore --fix
-  - git add
