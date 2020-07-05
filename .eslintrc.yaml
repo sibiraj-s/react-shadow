@@ -3,6 +3,7 @@ root: true
 extends:
   - standard
   - plugin:react/recommended
+  - pegasus
 
 parser: babel-eslint
 
@@ -14,22 +15,6 @@ rules:
   react-hooks/rules-of-hooks: error
   react-hooks/exhaustive-deps: warn
   react/prop-types: off
-  max-len:
-    - error
-    - code: 120
-  no-multiple-empty-lines:
-    - error
-    - max: 2
-      maxBOF: 0
-  comma-dangle:
-    - error
-    - only-multiline
-  generator-star-spacing:
-    - error
-    - after
-  semi:
-    - error
-    - always
   jsx-quotes:
     - error
     - prefer-single

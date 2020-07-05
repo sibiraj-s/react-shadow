@@ -28,8 +28,8 @@ const babelRc = (api) => {
         require('@babel/preset-env').default,
         {
           targets: {
-            node: 'current'
-          }
+            node: 'current',
+          },
         },
       ],
       [

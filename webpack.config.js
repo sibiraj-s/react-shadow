@@ -15,7 +15,7 @@ const webpackConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    jsonpFunction: '__REACT_SHADOW__'
+    jsonpFunction: '__REACT_SHADOW__',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
@@ -46,25 +46,25 @@ const webpackConfig = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       },
       {
         test: /\.svg$/i,
         use: 'file-loader',
-      }
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
-      favicon: path.resolve(__dirname, 'src/favicon.ico')
+      favicon: path.resolve(__dirname, 'src/favicon.ico'),
     }),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: process.env.NODE_ENV
+      NODE_ENV: process.env.NODE_ENV,
     }),
-    new webpack.ProgressPlugin()
-  ]
+    new webpack.ProgressPlugin(),
+  ],
 };
 
 if (process.env.NODE_ENV === 'production') {

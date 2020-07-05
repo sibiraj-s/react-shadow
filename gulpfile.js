@@ -23,7 +23,7 @@ function webpackCompile (done) {
 
     const info = stats.toString({
       chunks: false, // Makes the build much quieter
-      colors: true // Shows colors in the console,
+      colors: true, // Shows colors in the console,
     });
 
     console.log(info);
@@ -34,7 +34,7 @@ function webpackCompile (done) {
 function publishDocs (done) {
   const options = {
     branch: 'gh-pages',
-    message: `docs: update ${new Date().toISOString()}`
+    message: `docs: update ${new Date().toISOString()}`,
   };
 
   ghpages.publish(OUTPUT_DIR, options, (err) => {
@@ -45,7 +45,6 @@ function publishDocs (done) {
     done();
   });
 }
-
 
 const build = gulp.series(cleanOutDir, webpackCompile);
 
