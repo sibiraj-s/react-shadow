@@ -4,10 +4,10 @@ const webpack = require('webpack');
 
 const pkgJson = require('./package.json');
 
-function insertShadowStyles (styleEl) {
+const insertShadowStyles = (styleEl) => {
   const target = document.querySelector('shadow-host').shadowRoot;
   target.appendChild(styleEl);
-}
+};
 
 const webpackConfig = {
   mode: process.env.NODE_ENV,
@@ -15,7 +15,6 @@ const webpackConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    jsonpFunction: '__REACT_SHADOW__',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
@@ -23,8 +22,8 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.m?js(x)?$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.m?jsx?$/,
+        exclude: /(?:node_modules|bower_components)/,
         use: 'babel-loader',
       },
       {
@@ -41,7 +40,7 @@ const webpackConfig = {
         ],
       },
       {
-        test: /\.(s)?css$/,
+        test: /\.s[ac]ss$/i,
         exclude: /app.scss/,
         use: [
           'style-loader',
@@ -65,6 +64,11 @@ const webpackConfig = {
     }),
     new webpack.ProgressPlugin(),
   ],
+  devServer: {
+    port: 6673,
+    historyApiFallback: true,
+    hot: true,
+  },
 };
 
 if (process.env.NODE_ENV === 'production') {
