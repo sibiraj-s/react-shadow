@@ -1,9 +1,9 @@
 root: true
 
 extends:
-  - standard
-  - plugin:react/recommended
   - pegasus
+  - pegasus/node
+  - plugin:react/recommended
 
 parser: babel-eslint
 
@@ -21,7 +21,6 @@ rules:
 
 env:
   browser: true
-  node: true
   jest/globals: true
 
 settings:

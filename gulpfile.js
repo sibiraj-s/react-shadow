@@ -8,11 +8,11 @@ const ghpages = require('gh-pages');
 const config = require('./webpack.config');
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 
-async function cleanOutDir () {
+const cleanOutDir = async () => {
   await fs.promises.rmdir(OUTPUT_DIR, { recursive: true });
-}
+};
 
-function webpackCompile (done) {
+const webpackCompile = (done) => {
   const compiler = webpack(config);
 
   compiler.run((err, stats) => {
@@ -22,16 +22,18 @@ function webpackCompile (done) {
     }
 
     const info = stats.toString({
-      chunks: false, // Makes the build much quieter
-      colors: true, // Shows colors in the console,
+      // Makes the build much quieter
+      chunks: false,
+      // Shows colors in the console
+      colors: true,
     });
 
     console.log(info);
     done();
   });
-}
+};
 
-function publishDocs (done) {
+const publishDocs = (done) => {
   const options = {
     branch: 'gh-pages',
     message: `docs: update ${new Date().toISOString()}`,
@@ -44,7 +46,7 @@ function publishDocs (done) {
     }
     done();
   });
-}
+};
 
 const build = gulp.series(cleanOutDir, webpackCompile);
 
