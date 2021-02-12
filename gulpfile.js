@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 
 const gulp = require('gulp');
@@ -7,10 +6,6 @@ const ghpages = require('gh-pages');
 
 const config = require('./webpack.config');
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
-
-const cleanOutDir = async () => {
-  await fs.promises.rmdir(OUTPUT_DIR, { recursive: true });
-};
 
 const webpackCompile = (done) => {
   const compiler = webpack(config);
@@ -48,7 +43,7 @@ const publishDocs = (done) => {
   });
 };
 
-const build = gulp.series(cleanOutDir, webpackCompile);
+const build = gulp.series(webpackCompile);
 
 exports.publish = gulp.series(build, publishDocs);
 exports.build = build;

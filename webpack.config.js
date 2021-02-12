@@ -13,6 +13,7 @@ const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
