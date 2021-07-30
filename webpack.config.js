@@ -10,11 +10,14 @@ const insertShadowStyles = (styleEl) => {
   target.appendChild(styleEl);
 };
 
+const isProduction = process.env.NODE_ENV !== 'development';
+
 const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     clean: true,
+    filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -53,6 +56,9 @@ const webpackConfig = {
       {
         test: /\.svg$/i,
         type: 'asset/resource',
+        generator: {
+          filename: isProduction ? 'images/[name]-[contenthash][ext]' : 'images/[name][ext]',
+        },
       },
     ],
   },
@@ -68,6 +74,15 @@ const webpackConfig = {
   ],
   optimization: {
     runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   devServer: {
     port: 6673,
@@ -76,7 +91,7 @@ const webpackConfig = {
   },
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (isProduction) {
   webpackConfig.output.publicPath = `/${pkgJson.name}/`;
 }
 
