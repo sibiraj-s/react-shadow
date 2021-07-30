@@ -52,7 +52,7 @@ const webpackConfig = {
       },
       {
         test: /\.svg$/i,
-        use: 'file-loader',
+        type: 'asset/resource',
       },
     ],
   },
@@ -66,6 +66,9 @@ const webpackConfig = {
     }),
     new webpack.ProgressPlugin(),
   ],
+  optimization: {
+    runtimeChunk: 'single',
+  },
   devServer: {
     port: 6673,
     historyApiFallback: true,
