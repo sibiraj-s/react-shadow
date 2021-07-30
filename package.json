@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
-    "start": "NODE_ENV=development webpack serve",
+    "dev": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production gulp build",
     "publish:docs": "NODE_ENV=production gulp publish",
     "test": "NODE_ENV=test jest",
