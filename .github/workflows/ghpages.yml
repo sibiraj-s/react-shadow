@@ -30,6 +30,9 @@ jobs:
       - name: NPM Install
         run: npm ci
 
+      - name: Build
+        run: npm run build
+
       - name: Publish to gh-pages branch
         run: |
           git config --global user.name "github-actions[bot]"

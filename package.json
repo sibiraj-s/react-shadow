@@ -2,7 +2,6 @@
   "name": "react-shadow",
   "version": "0.0.0-boilerplate",
   "description": "Render React app inside in shadow DOM",
-  "main": "index.js",
   "private": true,
   "author": "sibiraj-s",
   "license": "MIT",
@@ -16,9 +15,9 @@
   ],
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
-    "dev": "NODE_ENV=development webpack serve",
-    "build": "NODE_ENV=production gulp build",
-    "publish:docs": "NODE_ENV=production gulp publish",
+    "dev": "webpack serve --mode=development",
+    "build": "webpack build --mode=production",
+    "publish:docs": "node scripts/pages.js",
     "test": "NODE_ENV=test jest",
     "prepare": "is-ci || husky install"
   },
@@ -46,7 +45,6 @@
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^3.2.3",
-    "gulp": "^4.0.2",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "is-ci": "^3.0.1",

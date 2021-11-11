@@ -20,7 +20,7 @@ rules:
     - prefer-single
 
 overrides:
-  - files: gulpfile.js
+  - files: scripts/*.js
     rules:
       no-console: off
 
