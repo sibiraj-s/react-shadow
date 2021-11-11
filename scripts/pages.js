@@ -1,6 +1,6 @@
-const util = require('node:util');
-const path = require('node:path');
-const ghpages = require('gh-pages');
+import util from 'node:util';
+import path from 'node:path';
+import ghpages from 'gh-pages';
 
 const BUILD_DIR = path.resolve(__dirname, '..', 'dist');
 const publishAsync = util.promisify(ghpages.publish);

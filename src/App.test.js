@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import App from './App';
+import App from './App.jsx';
 
 it('should render the react component', () => {
   // setup a DOM element as a render target

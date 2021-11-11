@@ -1,10 +1,10 @@
-import './polyfills';
+import './polyfills.js';
 
 // Warning: Don't Modify this file
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Root from './Root';
+import Root from './Root.js';
 
 import './index.scss';
 

@@ -1,26 +1,22 @@
-const path = require('node:path');
+import path from 'node:path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const isProduction = process.env.NODE_ENV !== 'development';
 
 const insertShadowStyles = (styleEl) => {
   const target = document.querySelector('shadow-host').shadowRoot;
   target.appendChild(styleEl);
 };
 
-const isProduction = process.env.NODE_ENV !== 'development';
-
-const webpackConfig = {
+const config = {
   mode: process.env.NODE_ENV,
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: './src/index.js',
   output: {
     clean: true,
     filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(process.cwd(), 'dist'),
     publicPath: 'auto',
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
   },
   module: {
     rules: [
@@ -62,8 +58,8 @@ const webpackConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
-      favicon: path.resolve(__dirname, 'src/favicon.ico'),
+      template: './src/index.html',
+      favicon: './src/favicon.ico',
     }),
     new webpack.ProgressPlugin(),
   ],
@@ -75,6 +71,7 @@ const webpackConfig = {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
+          maxSize: 240000, // 240kb
         },
       },
     },
@@ -86,4 +83,4 @@ const webpackConfig = {
   },
 };
 
-module.exports = webpackConfig;
+export default config;

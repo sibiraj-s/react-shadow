@@ -8,6 +8,7 @@
   "repository": "https://github.com/sibiraj-s/react-shadow.git",
   "homepage": "https://github.com/sibiraj-s/react-shadow#readme",
   "bugs": "https://github.com/sibiraj-s/react-shadow/issues",
+  "type": "module",
   "keywords": [
     "react-shadow",
     "react",

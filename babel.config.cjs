@@ -1,13 +1,10 @@
 const babelRc = (api) => {
-  const { env } = api;
-
-  const isEnvDevelopment = env() === 'development';
-  const isEnvTest = env() === 'test';
-  const isEnvProduction = !isEnvDevelopment && !isEnvTest;
+  const isEnvDevelopment = api.env('development');
+  const isEnvTest = api.env('test');
 
   return {
     presets: [
-      (isEnvProduction || isEnvDevelopment) && [
+      !isEnvTest && [
         // Latest stable ECMAScript features
         '@babel/preset-env',
         {
