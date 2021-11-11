@@ -3,8 +3,6 @@ const path = require('node:path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const pkgJson = require('./package.json');
-
 const insertShadowStyles = (styleEl) => {
   const target = document.querySelector('shadow-host').shadowRoot;
   target.appendChild(styleEl);
@@ -19,7 +17,7 @@ const webpackConfig = {
     clean: true,
     filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: 'auto',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
@@ -90,9 +88,5 @@ const webpackConfig = {
     hot: true,
   },
 };
-
-if (isProduction) {
-  webpackConfig.output.publicPath = `/${pkgJson.name}/`;
-}
 
 module.exports = webpackConfig;
