@@ -15,7 +15,7 @@ const config = {
   output: {
     clean: true,
     filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
-    path: path.resolve(process.cwd(), 'dist'),
+    path: path.resolve(process.cwd(), 'build'),
     publicPath: 'auto',
   },
   module: {
