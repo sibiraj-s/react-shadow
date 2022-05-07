@@ -1,9 +1,9 @@
 // Warning: Don't Modify this file
-import React from 'react';
+import { lazy, Suspense } from 'react';
 
 // lazy load the app to make sure
-const App = React.lazy(() => import('./App.jsx'));
+const App = lazy(() => import('./App.jsx'));
 
-const Root = () => <React.Suspense fallback={null}><App /></React.Suspense>;
+const Root = () => <Suspense fallback={null}><App /></Suspense>;
 
 export default Root;
