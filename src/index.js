@@ -9,16 +9,16 @@ import Root from './Root.js';
 import './index.scss';
 
 // Create web component with target div inside it.
-const container = document.createElement('shadow-host');
+const host = document.createElement('shadow-host');
 
 // Add shadow root to component.
-container.attachShadow({ mode: 'open' });
+host.attachShadow({ mode: 'open' });
 
-document.body.appendChild(container);
+document.body.appendChild(host);
 
 // Select the web component, then the shadowRoot.
-const target = document.querySelector('shadow-host').shadowRoot;
-const root = createRoot(target);
+const container = document.querySelector('shadow-host').shadowRoot;
+const root = createRoot(container);
 
 const Main = () => {
   return (
