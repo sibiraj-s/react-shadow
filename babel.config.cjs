@@ -33,9 +33,8 @@ const babelRc = (api) => {
           // Adds component stack to warning messages
           // Adds __self attribute to JSX which React will use for some warnings
           development: isEnvDevelopment,
-          // Will use the native built-in instead of trying to polyfill
-          // behavior for any plugins that require one.
-          useBuiltIns: true,
+          // use new JSX transform
+          runtime: 'automatic',
         },
       ],
     ].filter(Boolean),

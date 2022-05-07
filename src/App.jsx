@@ -1,5 +1,3 @@
-import React from 'react';
-
 import reactLogo from './assets/images/react.svg';
 import './app.scss';
 

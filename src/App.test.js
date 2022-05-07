@@ -1,6 +1,5 @@
 import { it, expect } from '@jest/globals';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 
 import App from './App.jsx';
@@ -9,9 +8,10 @@ it('should render the react component', () => {
   // setup a DOM element as a render target
   const container = document.createElement('div');
   document.body.appendChild(container);
+  const root = createRoot(container);
 
   act(() => {
-    ReactDOM.render(<App />, container);
+    root.render(<App />);
   });
 
   expect(container.textContent).toBe('React app rendered inside Shadow DOM');
@@ -25,9 +25,10 @@ it('should render the react component inside shadow root', () => {
   document.body.appendChild(container);
   // Select the web component, then the shadowRoot.
   const target = document.querySelector('shadow-host').shadowRoot;
+  const root = createRoot(target);
 
   act(() => {
-    ReactDOM.render(<App />, target);
+    root.render(<App />);
   });
 
   expect(target.textContent).toBe('React app rendered inside Shadow DOM');
@@ -37,9 +38,10 @@ it('should have rendered the logo', () => {
   // setup a DOM element as a render target
   const container = document.createElement('div');
   document.body.appendChild(container);
+  const root = createRoot(container);
 
   act(() => {
-    ReactDOM.render(<App />, container);
+    root.render(<App />);
   });
 
   expect(container.querySelector('img').src).toBeTruthy();

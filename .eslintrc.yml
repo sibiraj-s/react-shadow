@@ -4,16 +4,15 @@ extends:
   - pegasus
   - pegasus/node
   - plugin:react/recommended
+  - plugin:react/jsx-runtime
+  - plugin:react-hooks/recommended
 
 parser: '@babel/eslint-parser'
 
 plugins:
-  - react-hooks
   - jest
 
 rules:
-  react-hooks/rules-of-hooks: error
-  react-hooks/exhaustive-deps: warn
   react/prop-types: off
   jsx-quotes:
     - error
@@ -27,8 +26,3 @@ overrides:
 env:
   browser: true
   jest/globals: true
-
-settings:
-  react:
-    pragma: React
-    version: detect
