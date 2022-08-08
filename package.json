@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
-    "dev": "webpack serve --mode=development",
-    "build": "webpack build --mode=production",
+    "dev": "webpack serve --mode=development --node-env=production",
+    "build": "webpack build --mode=production --node-env=production",
     "publish:docs": "node scripts/pages.js",
     "test": "jest",
     "prepare": "is-ci || husky install"
