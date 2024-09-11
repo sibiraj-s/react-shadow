@@ -1,13 +1,11 @@
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 
 const isProduction = process.env.NODE_ENV !== 'development';
 
-const insertShadowStyles = (styleEl) => {
-  const target = document.querySelector('shadow-host').shadowRoot;
-  target.appendChild(styleEl);
-};
+const require = createRequire(import.meta.url);
 
 const config = {
   mode: process.env.NODE_ENV,
@@ -31,7 +29,7 @@ const config = {
           {
             loader: 'style-loader',
             options: {
-              insert: insertShadowStyles,
+              insert: require.resolve('./scripts/insert-shadow-styles.js'),
             },
           },
           'css-loader',
